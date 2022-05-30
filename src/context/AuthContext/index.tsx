@@ -8,7 +8,6 @@ import { createTokenCookies, getToken, removeTokenCookies } from '../../utils/to
 
 interface User {
   email: string
-  permissions: string[]
   roles: string[]
 }
 
@@ -42,11 +41,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   async function signIn({ email, password }: SignInCredentials) {
     try {
-      const response = await api.post('/sessions', { email, password })
-      const { token, refreshToken, permissions, roles } = response.data
+      const response = await api.post('/auth/login', { email, password })
+      const { token, refreshToken, roles } = response.data
 
       createTokenCookies(token, refreshToken)
-      setUser({ email, permissions, roles })
+      setUser({ email, roles })
       setAuthorizationHeader(api.defaults, token)
     } catch (error) {
       const err = error as AxiosError
@@ -75,8 +74,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
         const response = await api.get('/me')
 
         if (response?.data) {
-          const { email, permissions, roles } = response.data
-          setUser({ email, permissions, roles })
+          const { email, roles } = response.data
+          setUser({ email, roles })
         }
       } catch (error) {
         signOut()

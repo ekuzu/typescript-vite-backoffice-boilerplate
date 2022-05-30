@@ -3,7 +3,7 @@ import { PrivateRoute } from './PrivateRoute'
 import { PublicRoute } from './PublicRoute'
 
 // LAYOUTS
-import { LoginLayout } from '../layouts/Login'
+import { AuthLayout } from '../layouts/Auth'
 import { AppLayout } from '../layouts/App'
 
 // PAGES
@@ -23,7 +23,7 @@ export const RouteList = () => (
       />
     </Route>
 
-    <Route element={<LoginLayout />}>
+    <Route element={<AuthLayout />}>
       <Route
         path="/login"
         element={
