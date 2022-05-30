@@ -7,7 +7,7 @@ type State = {
   password: string
 }
 
-export function Login(props: any) {
+export function Login() {
   const { signIn } = useContext(AuthContext)
 
   const {
