@@ -32,7 +32,8 @@
     "dev": "vite --mode development",
     "build": "vite build",
     "test": "react-scripts test",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "heroku": "vite preview --host=typescript-backoffice.herokuapp.com --port=80"
   },
   "eslintConfig": {
     "extends": [
