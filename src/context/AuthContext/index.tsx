@@ -71,7 +71,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setLoadingUserData(true)
 
       try {
-        const response = await api.get('/me')
+        const response = await api.get('/auth/me')
 
         if (response?.data) {
           const { email, roles } = response.data
