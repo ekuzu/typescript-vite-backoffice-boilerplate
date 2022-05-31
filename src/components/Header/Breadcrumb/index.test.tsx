@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
 
-import { Home } from '.'
+import { Menu } from '.'
 
-describe('Home page component', () => {
+describe('Menu component', () => {
   it('should render with success', () => {
-    render(<Home />)
-    const linkElement = screen.getByText(/dashboard/i)
+    render(<Menu />)
+    const linkElement = screen.getByText(/breadcrumb/i)
     expect(linkElement).toBeInTheDocument()
   })
 })

@@ -8,30 +8,28 @@ import { AppLayout } from '../layouts/App'
 
 // PAGES
 import { Home } from '../pages/Home'
+import { Users } from '../pages/Users'
 import { Login } from '../pages/Login'
 
 export const RouteList = () => (
   <Routes>
-    <Route element={<AppLayout />}>
-      <Route
-        path="/"
-        element={
-          <PrivateRoute redirectTo="/login">
-            <Home />
-          </PrivateRoute>
-        }
-      />
+    <Route
+      element={
+        <PrivateRoute redirectTo="/login">
+          <AppLayout />
+        </PrivateRoute>
+      }>
+      <Route path="/" element={<Home />} />
+      <Route path="/users" element={<Users />} />
     </Route>
 
-    <Route element={<AuthLayout />}>
-      <Route
-        path="/login"
-        element={
-          <PublicRoute>
-            <Login />
-          </PublicRoute>
-        }
-      />
+    <Route
+      element={
+        <PublicRoute>
+          <AuthLayout />
+        </PublicRoute>
+      }>
+      <Route path="/login" element={<Login />} />
     </Route>
 
     <Route path="*" element={<h1>404</h1>} />

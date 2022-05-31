@@ -1,13 +1,15 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
+import { Breadcrumb } from '../../components/Header/Breadcrumb'
 export function AppLayout() {
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="h-screen overflow-hidden">
       <Header />
-      <Outlet />
-      <Footer />
+      <Breadcrumb />
+      <main>
+        <Outlet />
+      </main>
     </div>
   )
 }

@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
 
-import { Menu } from '.'
+import { Users } from '.'
 
-describe('Menu component', () => {
+describe('Home page component', () => {
   it('should render with success', () => {
-    render(<Menu />)
-    const linkElement = screen.getByText(/footer/i)
+    render(<Users />)
+    const linkElement = screen.getByText(/users/i)
     expect(linkElement).toBeInTheDocument()
   })
 })
